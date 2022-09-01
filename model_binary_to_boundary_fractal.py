@@ -36,7 +36,7 @@ def ran(first,last,num_steps):
    return(list0)
 
 
-directory = '/Users/wilfofford/Documents/Models/First Model/PondMask'
+directory = 'DIRECTORY_PATH'
 runs      = range(1,11)
 steprange = range(1,202)
 do_1st_hom=False
