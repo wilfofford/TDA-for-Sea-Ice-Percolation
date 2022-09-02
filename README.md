@@ -13,7 +13,8 @@ conda install -c conda-forge ripser persim
 
 or if working with pip:
 
-```pip install ripser persim
+```
+pip install ripser persim
 ```
 
 
