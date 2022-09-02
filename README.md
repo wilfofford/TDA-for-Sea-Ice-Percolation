@@ -7,11 +7,14 @@ Persim: Package for plotting persistence diagrams - see https://persim.scikit-td
 
 To install, copy the following into terminal if working with conda:
 
-> **_NOTE:_**  conda install -c conda-forge ripser persim
+```
+conda install -c conda-forge ripser persim
+```
 
 or if working with pip:
 
-> **_NOTE:_**  pip install ripser persim
+```pip install ripser persim
+```
 
 
 
