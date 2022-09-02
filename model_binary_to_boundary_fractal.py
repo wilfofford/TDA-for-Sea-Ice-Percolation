@@ -22,7 +22,7 @@ from pathlib import Path
 import random
 from scipy.stats import linregress
 import pandas as pd
-from my_functions import binary_boundary
+from helper_functions import binary_boundary
 
 
 
