@@ -16,7 +16,7 @@ import os
 import matplotlib.pyplot as plt
 import time
 from ripser import ripser
-from my_functions import lower_star_distance_matrix, upper_star_distance_matrix_with_disconnected_boundary, SEDTise, persistence_image_bins
+from helper_functions import lower_star_distance_matrix, upper_star_distance_matrix_with_disconnected_boundary, SEDTise, persistence_image_bins
 from pathlib import Path
 
 directory = '[DIRECTORY PATH]'
