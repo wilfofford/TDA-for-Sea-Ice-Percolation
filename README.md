@@ -20,7 +20,7 @@ pip install cython ripser persim
 Conda should automatically install cython; if using pip we have to specify this.
 
 
-Code files:
+## Code files:
 
 my_functions.py : helper functions used throughout files
 
