@@ -14,11 +14,13 @@ conda install -c conda-forge ripser persim
 or if working with pip:
 
 ```
-pip install ripser persim
+pip install cython ripser persim
 ```
 
+Conda should automatically install cython; if using pip we have to specify this.
 
 
+Code files:
 
 my_functions.py : helper functions used throughout files
 model_binary_to_fractal.py : takes directory containing folders {Run i} of binary images saved as .txt (1=pond, 0=ice), and calculates the signed Euclidean distance transform, persistence diagrams, persistence images calculated by 'binning' (see [1]) and plots images visualizing these as well as thumbnails to display if you wanted to visualize persistence images with PCA in an interactive data visualization package like Bokeh.
