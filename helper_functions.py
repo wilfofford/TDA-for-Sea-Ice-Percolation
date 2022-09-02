@@ -377,7 +377,7 @@ SEDTs=None, plottitlefunction=None):
                 plt.title('0th Homology')
 
                 plt.subplot(235)
-                plot_diagrams(dgms[key][0], labels='H_0', xy_range=[min0,max0]*2, size=20)
+                plot_diagrams(dgms[key][0], labels='$H_0$', xy_range=[min0,max0]*2, size=20)
 
                 plt.subplot(233)
                 plt.imshow(np.log(pimages1[key]+1))
@@ -388,7 +388,7 @@ SEDTs=None, plottitlefunction=None):
                 plt.title('1st Homology')
 
                 plt.subplot(236)
-                plot_diagrams(dgms[key][1], labels='H_1', xy_range=[min1,max1]*2, size=20)
+                plot_diagrams(dgms[key][1], labels='$H_1$', xy_range=[min1,max1]*2, size=20)
 
                 os.chdir(directoryfunction(key)[2])
                 plt.savefig(filenamefunction(key) + ' Plot.png')
