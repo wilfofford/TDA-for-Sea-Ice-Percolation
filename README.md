@@ -33,6 +33,13 @@ model_binary_to_fractal.py : takes directory containing folders {Run i} of binar
 
 model_binary_to_boundary_fractal.py : above, but computes PH fractal dimension of the boundary
 
+## Model Data:
+10 runs, each of 200 time steps, are provided for each of the three variations of the dynamical network model.
+Model 1: A constant melt rate
+Model 2: Ice covered by pond water has a higher melt rate, modelling ice-albedo feedback
+Model 3: Same as Model 2, but now with drainage modelled as random events where ponds drain to sea-level
+
+
 ## References
 <a id="1">[1]</a> 
 Moon, C., Mitchell, S. A., Heath, J. E., & Andrew, M. (2019). Statistical inference over persistent homology predicts fluid flow in porous media. Water Resources Research, 55, 9592– 9603. https://doi.org/10.1029/2019WR025171
