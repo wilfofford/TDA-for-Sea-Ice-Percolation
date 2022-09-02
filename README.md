@@ -27,5 +27,6 @@ model_binary_to_fractal.py : takes directory containing folders {Run i} of binar
 model_binary_to_fractal.py : takes directory containing folders {Run i} of binary images saved as .txt, and calculates PH fractal dimension for them.
 model_binary_to_boundary_fractal.py : above, but computes PH fractal dimension of the boundary
 
+## References
 <a id="1">[1]</a> 
 Moon, C., Mitchell, S. A., Heath, J. E., & Andrew, M. (2019). Statistical inference over persistent homology predicts fluid flow in porous media. Water Resources Research, 55, 9592– 9603. https://doi.org/10.1029/2019WR025171
