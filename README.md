@@ -1,6 +1,6 @@
 # TDA-for-Sea-Ice-Percolation
 
-![image](visualisationplot.png)
+![image](visualisationplot.png | width=100)
 
 Code for 'Topological Data Analysis for Percolation in Arctic Melt Pond Evolution'
 
