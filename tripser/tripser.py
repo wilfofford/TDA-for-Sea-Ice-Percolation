@@ -14,6 +14,11 @@ make sure compiled c++ program tripser.exe is in same directory
 """
                               
 def tripser(img):
+    start_dir=os.getcwd()
+    file_dir=os.path.realpath(os.path.dirname(__file__))
+    os.chdir(file_dir)
+  
+  
     m,n=img.shape
     flat=img.flatten().tolist()
     dgm=[]
@@ -36,7 +41,7 @@ def tripser(img):
     
     os.remove("storing_img.txt")
     os.remove("storing_barcode.txt")
-            
+    os.chdir(start_dir)    
     return{'dgm':np.array(dgm),'locations':np.array(locations)}
 
 def compute_distances(barcode):
