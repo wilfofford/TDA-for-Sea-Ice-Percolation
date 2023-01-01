@@ -4,6 +4,7 @@ import copy
 from scipy import sparse
 from functools import reduce
 from scipy.interpolate import griddata
+from scipy.ndimage.morphology import distance_transform_edt as edt
 import warnings
 from persim import plot_diagrams
 import os
@@ -21,52 +22,58 @@ pond_cmap=matplotlib.colors.LinearSegmentedColormap.from_list("", ["#a1bcc1","#1
 
 #takes in a binary (true/false) image and outputs the signed euclidean distance transform. 'true' values are
 #sent to negative values, 'false' are sent to positive.
-def SEDTise(img):                                             
+def SEDTise(img):
+    pass1=edt(img)
+    pass2=edt(1-img)
+    
+    return pass2-pass1
 
-    SEDT=copy.deepcopy(img).astype(float)
+# def SEDTise(img):                                             
+
+#     SEDT=copy.deepcopy(img).astype(float)
 
         
-    for j in range(img.shape[0]):
-        for k in range(img.shape[1]):
-            if not np.isnan(img[j,k]):
-                if img[j,k]:
-                    searchradius = 1
+#     for j in range(img.shape[0]):
+#         for k in range(img.shape[1]):
+#             if not np.isnan(img[j,k]):
+#                 if img[j,k]:
+#                     searchradius = 1
                 
-                    while img[max(0,j-searchradius):min(img.shape[0]-1, j+searchradius)+1,
-                                                max(0,k-searchradius):min(img.shape[1]-1,k+searchradius)+1].all():
-                        searchradius+=1
+#                     while img[max(0,j-searchradius):min(img.shape[0]-1, j+searchradius)+1,
+#                                                 max(0,k-searchradius):min(img.shape[1]-1,k+searchradius)+1].all():
+#                         searchradius+=1
                         
-                    subsquare=img[max(0,j-searchradius):min(img.shape[0]-1, j+searchradius)+1,
-                                                max(0,k-searchradius):min(img.shape[1]-1,k+searchradius)+1]
-                    dists=[]
+#                     subsquare=img[max(0,j-searchradius):min(img.shape[0]-1, j+searchradius)+1,
+#                                                 max(0,k-searchradius):min(img.shape[1]-1,k+searchradius)+1]
+#                     dists=[]
                     
                     
-                    for r in range(subsquare.shape[0]):
-                        for l in range(subsquare.shape[1]):
-                            if not subsquare[r,l]:
-                                dists.append(math.sqrt((r+max(0,j-searchradius)-j)**2+(l+max(0,k-searchradius)-k)**2))
+#                     for r in range(subsquare.shape[0]):
+#                         for l in range(subsquare.shape[1]):
+#                             if not subsquare[r,l]:
+#                                 dists.append(math.sqrt((r+max(0,j-searchradius)-j)**2+(l+max(0,k-searchradius)-k)**2))
                                 
                     
-                    SEDT[j,k]=-min(dists)
+#                     SEDT[j,k]=-min(dists)
                     
-                if not img[j,k]:
-                    searchradius = 1
+#                 if not img[j,k]:
+#                     searchradius = 1
                 
-                    while not (img[max(0,j-searchradius):min(img.shape[0]-1, j+searchradius)+1,
-                                                max(0,k-searchradius):min(img.shape[1]-1,k+searchradius)+1]).any():
-                        searchradius+=1
+#                     while not (img[max(0,j-searchradius):min(img.shape[0]-1, j+searchradius)+1,
+#                                                 max(0,k-searchradius):min(img.shape[1]-1,k+searchradius)+1]).any():
+#                         searchradius+=1
                         
-                    subsquare=img[max(0,j-searchradius):min(img.shape[0]-1, j+searchradius)+1,
-                                                max(0,k-searchradius):min(img.shape[1]-1,k+searchradius)+1]
-                    dists=[]
+#                     subsquare=img[max(0,j-searchradius):min(img.shape[0]-1, j+searchradius)+1,
+#                                                 max(0,k-searchradius):min(img.shape[1]-1,k+searchradius)+1]
+#                     dists=[]
                     
-                    for r in range(subsquare.shape[0]):
-                        for l in range(subsquare.shape[1]):
-                            if subsquare[r,l]:
-                                dists.append(math.sqrt((r+max(0,j-searchradius)-j)**2+(l+max(0,k-searchradius)-k)**2))
+#                     for r in range(subsquare.shape[0]):
+#                         for l in range(subsquare.shape[1]):
+#                             if subsquare[r,l]:
+#                                 dists.append(math.sqrt((r+max(0,j-searchradius)-j)**2+(l+max(0,k-searchradius)-k)**2))
                                 
-                    SEDT[j,k]=min(dists)
-    return SEDT
+#                     SEDT[j,k]=min(dists)
+#     return SEDT
 
 
 def lower_star_distance_matrix(img):
