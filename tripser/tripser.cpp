@@ -3,11 +3,6 @@
 #include <limits>
 #include <algorithm>
 #include <fstream>
-// #include <pybind11/pybind11.h>
-// #include <pybind11/stl.h>
-// #include <pybind11/numpy.h>
-
-// namespace py = pybind11;
 
 class Edge
 {
@@ -167,13 +162,10 @@ Barcode compute_dim0_pairs(Graph graph)
     return bcode;
 }
 
-// Graph lower_star_graph(std::vector< std::vector<float> > img, int m, int n)
+
 Graph lower_star_graph(std::vector<float> img, int m, int n)
 {
-    // int m = img.size(), n = img[0].size();
-    // std::vector<std::vector<std::pair<int,int>>> coordinates;
-    // std::vector<std::vector<int>> locations;
-    // std::vector<std::vector<std::pair<int,int>>> coordinates(m,std::vector<std::pair<int,int>>(n));
+
     std::vector<std::vector<int>> locations(m,std::vector<int>(n));
     std::vector<Edge> edges;
     std::vector<std::pair<int,int>> flatcoords(m*n);
@@ -184,10 +176,8 @@ Graph lower_star_graph(std::vector<float> img, int m, int n)
     {
         for(int j=0; j<n; ++j)
         {
-            // coordinates[i][j]=std::make_pair(i,j);
             locations[i][j]=n*i+j;
-            flatcoords[n*i+j]=std::make_pair(i,j);
-            // flatimg[n*i+j]=img[i][j];
+            flatcoords[n*i+j]=std::make_pair(i,j);            
         }
     }
 
@@ -213,32 +203,11 @@ Graph lower_star_graph(std::vector<float> img, int m, int n)
 
 
 
-void print_vect(std::vector< std::vector<float> > vect) {
-    for (auto row : vect) {
-        for (auto val : row) {
-            std::cout<<val<<" ";
-        }
-        std::cout<<"\n";
-    }
-}
-
-// PYBIND11_MODULE(tripser, handle) {
-//     handle.doc()="TODO: Documentation";
-//     handle.def("tripser", &tripser_img);
-
-//     py::class_<Barcode>(handle, "Barcode").def(
-//         py::init<std::vector< std::pair<float,float> >, std::vector< std::pair< std::pair<int,int>, std::pair<int,int> > >>()
-//     );
-// }
-
-
 int main()
 {   
     std::ifstream in;
     in.open("storing_img.txt");
-
-    // std::vector<std::string> inputs;
-
+    
     std::string entry;
     int m,n;
     
@@ -246,9 +215,7 @@ int main()
     m = std::stoi(entry);
     in >> entry;
     n = std::stoi(entry);
-    std::cout<<"array size:"<<m<<" "<<n<<"\n";
     std::vector< float > vect(m*n);
-    std::cout<<"made vector\n";
     int i=0;
     while (in >> entry)
     {
@@ -258,71 +225,30 @@ int main()
 
     in.close();
 
-    std::cout<<"read file\n";
-
-    // int m = std::stoi(inputs[0]), n = std::stoi(inputs[1]);
-    
-    // std::vector< std::vector<float> > vect(m,std::vector<float>(n));
-
-
-    // for (int i=0;i<inputs.size()-2;++i) {
-    //     vect[i/m][i%m]=std::stof(inputs[i+2]);
-    // }
-    
-    // std::cout<<"made array\n";
-
     Graph graph = lower_star_graph(vect,m,n);
 
-    std::cout<<"made graph\n";
+    
 
     Barcode barcode = compute_dim0_pairs(graph);
 
-    std::cout<<"computed barcode\n";
+   
 
     std::ofstream temp;   
     temp.open("storing_barcode.txt", std::ofstream::out | std::ofstream::trunc);
     
     int l=barcode.dgm.size();
     int j=barcode.locations.size();
-    std::cout<<(l==j)<<"\n";
+    
     for (int i=0;i<l;++i)
     {
         temp<<barcode.dgm[i].first<<" "<<barcode.dgm[i].second<<" "<<barcode.locations[i].first.first<<" "<<barcode.locations[i].first.second<<" "
         <<barcode.locations[i].second.first<<" "<<barcode.locations[i].second.second<<"\n";
     }
-    // for (auto pair : barcode.dgm) {
-    //     temp<<pair.first<<" "<<pair.second<<"&";
-    // }
-    // temp<<"!";
-
-    // for(auto pair : barcode.locations) {
-    //     temp<<pair.first.first<<" "<<pair.first.second<<"%"<<pair.second.first<<" "<<pair.second.second<<"#";
-    // }
+ 
     
     temp.close();
 
 
-    // Edge e1(0,1,2);
-    // Edge e2(1,2,2);
-    // std::vector<std::pair<int,int>> vs{std::make_pair(0,0), std::make_pair(0,1), std::make_pair(0,2)};
-    // std::vector<Edge> es{e1,e2};
-    // std::vector<float> bs{0,2,1};
-
-    // Graph g(vs,es,bs);
-
-    // std::vector< std::vector<float> > img = { {1,0,-1,0},{1,0,0,0},{1,1,1,1},{0,0,0,0},{-1,-1,-1,0},{-1,-2,-1,0},{-1,-1,-1,0}};
-    // Graph g = lower_star_graph(img);
-
-    // Barcode bcode = compute_dim0_pairs(g);
-    // std::cout<<"pairs:\n";
-    // for (auto pair : bcode.dgm)
-    //     {
-    //         std::cout << pair.first << " " << pair.second << "\n";
-    //     }
-    // std::cout<<"locations:\n";
-    // for (auto pair : bcode.locations)
-    //     {
-    //         std::cout <<"("<<pair.first.first<<","<<pair.first.second<<") "<<"("<<pair.second.first<<","<<pair.second.second<<")\n";
-    //     }
+    
 
 }
