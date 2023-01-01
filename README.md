@@ -44,8 +44,10 @@ A c++ programme I made which computes 0th homology lower star filtration persist
 
 ##
 TODO:
-Make a proper python wrapper for tripser.cpp - currently data is being piped between python to c++ via temporary files.
+Make a proper python wrapper for tripser.cpp - currently data is being piped between python and c++ via temporary files.
 
 ## References
 <a id="1">[1]</a> 
 Moon, C., Mitchell, S. A., Heath, J. E., & Andrew, M. (2019). Statistical inference over persistent homology predicts fluid flow in porous media. Water Resources Research, 55, 9592– 9603. https://doi.org/10.1029/2019WR025171
+<a id="1">[2]</a>
+Tralie et al., (2018). Ripser.py: A Lean Persistent Homology Library for Python. Journal of Open Source Software, 3(29), 925, https://doi.org/10.21105/joss.00925, https://ripser.scikit-tda.org/en/latest/
