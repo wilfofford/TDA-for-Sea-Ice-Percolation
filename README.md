@@ -39,6 +39,11 @@ Model 1: A constant melt rate
 Model 2: Ice covered by pond water has a higher melt rate, modelling ice-albedo feedback
 Model 3: Same as Model 2, but now with drainage modelled as random events where ponds drain to sea-level
 
+## Tripser:
+A c++ programme I made which computes 0th homology lower star filtration persistence diagrams in the same way ripser does, but in addition tracks the pixel coordinates of birth and death events. Future work: This can be easily modified to track instead the birth coordinates of both components when they merge (thus recording a length scale for how far away connected components are connecting).
+
+##TODO:
+Make a proper python wrapper for tripser.cpp - currently data is being piped between python to c++ via temporary files.
 
 ## References
 <a id="1">[1]</a> 
