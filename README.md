@@ -44,7 +44,7 @@ A c++ programme I made which computes 0th homology lower star filtration persist
 
 ##
 TODO:
-Make a proper python wrapper for tripser.cpp - currently data is being piped between python and c++ via temporary files. This means tripser.py and tripse.exe must be in same folder as the programme you call it from.
+Make a proper python wrapper for tripser.cpp - currently data is being piped between python and c++ via temporary files.
 
 ## References
 <a id="1">[1]</a> 
