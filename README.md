@@ -2,7 +2,7 @@
 
 <img src="visualisationplot.png" width="500">
 
-Code for upcoming paper 'Topological Data Analysis for Percolation in Arctic Melt Pond Evolution'
+Code for upcoming paper 'Signed Euclidean Distance Transform Detects Percolation Thresholds in Arctic Melt-Pond Evolution'
 
 Dependencies:
 Ripser: a TDA package which computes persistence diagrams - see https://ripser.scikit-tda.org/en/latest/
