@@ -42,10 +42,6 @@ Model 3: Same as Model 2, but now with drainage modelled as random events where 
 ## Tripser:
 A c++ programme I made which computes 0th homology lower star filtration persistence diagrams in the same way ripser does, but in addition tracks the pixel coordinates of birth and death events. Future work: This can be easily modified to track instead the birth coordinates of both components when they merge (thus recording a length scale for how far away connected components are connecting).
 
-##
-TODO:
-Make a proper python wrapper for tripser.cpp - currently data is being piped between python and c++ via temporary files.
-
 ## References
 <a id="1">[1]</a> 
 Moon, C., Mitchell, S. A., Heath, J. E., & Andrew, M. (2019). Statistical inference over persistent homology predicts fluid flow in porous media. Water Resources Research, 55, 9592– 9603. https://doi.org/10.1029/2019WR025171
